@@ -1,13 +1,14 @@
 **Goal**
 
-The goal of this repo is to test various fixes, for
+The goal of this repo is to allow easy testing of various fixes, for
 dsmr_parser/clients/protocol.py
 
-When this files is used from HomeAssistant and
-EON Hungary sends non-ascii charaters in it's telegram the code raises 
-an exception and dies.
+When this file is used by an integration in HomeAssistant and
+the user is trying to parse an EON Hungary telegram the code raises 
+an exception and dies. In fact EON Hungary is sending non-ascii 
+charaters in it's telegram (0xff chars).
 
-There are 4 different test fixes in this test repo
+There are 4 different test fixes in this test repo:
 
 - use a try and a except block and in the except part
 encode and decode telegram with latin1 instead of ascii
@@ -15,13 +16,14 @@ encode and decode telegram with latin1 instead of ascii
 - use decode("ascii","ignore)
 - use decode("ascii","backslashreplace")
 
-`code`
-
 **How to use**
 
-Use HomeAssistant AdvTerminal and SSH console.
-Jump into the homeassistant container and
-clone this repo to /tmp.
+Start HomeAsssitant's web userinterface.
+Open AdvTerminal and SSH console on the web interface.
+
+Then jump into the homeassistant container and
+clone this repo to /tmp. They copy on of the fixes to
+/usr/local/lib/python3.12/site-packages/dsmr_parser/clients/.
 
 <pre>
 docker exec -it homeassistant /bin/bash
