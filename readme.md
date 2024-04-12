@@ -30,13 +30,13 @@ git clone https://github.com/apulai/dsmrjav
 cd  /usr/local/lib/python3.12/site-packages/dsmr_parser/clients/
 cp protocol.py protocol.py.orig
 
-cp /tmp/protocol.jav_pass.py protocol.py
+cp /tmp/dsmrjav/clients/protocol.jav_pass.py protocol.py
 or
-cp /tmp/protocol.jav_w2latin1.py protocol.py
+cp /tmp/dsmrjav/clients/protocol.jav_w2latin1.py protocol.py
 or
-cp /tmp/protocol.jav_wbsr.py protocol.py
+cp /tmp/dsmrjav/clients/protocol.jav_wbsr.py protocol.py
 or
-cp /tmp/protocol.jav_ignore.py protocol.py`
+cp /tmp/dsmrjav/clients/protocol.jav_ignore.py protocol.py`
 </pre>
 
 Happy testing
