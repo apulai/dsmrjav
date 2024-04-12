@@ -131,7 +131,7 @@ class DSMRProtocol(asyncio.Protocol):
             # ensure actual telegram is ascii (7-bit) only (ISO 646:1991 IRV required in section 5.5 of IEC 62056-21)
 
             # EON Hungary is sending non-ascii chars (0xff) in telegrams, which breaks the original code
-            # deocode allows to ignore non ascii bytes
+            # deocode allows to ignore and remove non-ascii characters
             # https://docs.python.org/3/howto/unicode.html
 
             telegram = telegram.encode("latin1").decode("ascii", "ignore")
