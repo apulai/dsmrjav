@@ -26,9 +26,9 @@ clone this repo to /tmp. They copy on of the fixes to
 /usr/local/lib/python3.12/site-packages/dsmr_parser/clients/.
 
 <pre>
-docker exec -it homeassistant /bin/bash
+docker exec -it homeassistant /bin/bash  (csak egyszer)
 cd /tmp
-git clone https://github.com/apulai/dsmrjav
+git clone https://github.com/apulai/dsmrjav (csak egyszer)
 cd  /usr/local/lib/python3.12/site-packages/dsmr_parser/clients/
 cp protocol.py protocol.py.orig
 --
