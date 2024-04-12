@@ -32,7 +32,12 @@ git clone https://github.com/apulai/dsmrjav (csak egyszer)
 cd  /usr/local/lib/python3.12/site-packages/dsmr_parser/clients/
 cp protocol.py protocol.py.orig
 --
+ls (könyvtár tartalam)
+cd (váltás könyvtárak között)
+cp (másolás)
+  
 cd  /usr/local/lib/python3.12/site-packages/dsmr_parser/clients/
+
 cp /tmp/dsmrjav/clients/protocol.jav_pass.py protocol.py
 or
 cp /tmp/dsmrjav/clients/protocol.jav_w2latin1.py protocol.py
