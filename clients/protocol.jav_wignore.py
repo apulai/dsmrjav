@@ -1,10 +1,11 @@
+
 """Asyncio protocol implementation for handling telegrams."""
 
 from functools import partial
 import asyncio
 import logging
 
-from serial_asyncio import create_serial_connection
+from serial_asyncio_fast import create_serial_connection
 
 from dsmr_parser import telegram_specifications
 from dsmr_parser.clients.telegram_buffer import TelegramBuffer
@@ -129,12 +130,15 @@ class DSMRProtocol(asyncio.Protocol):
 
         for telegram in self.telegram_buffer.get_all():
             # ensure actual telegram is ascii (7-bit) only (ISO 646:1991 IRV required in section 5.5 of IEC 62056-21)
+            try:
+                telegram = telegram.encode("latin1").decode("ascii")
+            except:
+                # EON Hungary is sending non-ascii chars (0xff) in telegrams, which breaks the above line
+                # This try block keeps the original way of operations and provides a
+                # solution for non-ascii solutions. The parser module seems to handle this
+                # exception
+                telegram = telegram.encode("latin1").decode("ascii", "ignore")
 
-            # EON Hungary is sending non-ascii chars (0xff) in telegrams, which breaks the original code
-            # deocode allows to ignore and remove non-ascii characters
-            # https://docs.python.org/3/howto/unicode.html
-
-            telegram = telegram.encode("latin1").decode("ascii", "ignore")
             self.handle_telegram(telegram)
 
     def keep_alive(self):
