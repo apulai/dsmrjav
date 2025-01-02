@@ -132,7 +132,6 @@ class DSMRProtocol(asyncio.Protocol):
             try:
                 telegram = telegram.encode("latin1").decode("ascii")
             except:
-                # pass
                 # EON Hungary is sending non-ascii chars (0xff) in telegrams, which breaks the above line
                 # This try block keeps the original way of operations and provides a
                 # solution for non-ascii solutions. The parser module seems to handle this
