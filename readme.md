@@ -26,17 +26,19 @@ clone this repo to /tmp. They copy on of the fixes to
 /usr/local/lib/python3.12/site-packages/dsmr_parser/clients/.
 
 <pre>
+docker ps
+# You might need to disable protected mode
 docker exec -it homeassistant /bin/bash  (csak egyszer)
 cd /tmp
 git clone https://github.com/apulai/dsmrjav (csak egyszer)
-cd  /usr/local/lib/python3.12/site-packages/dsmr_parser/clients/
+cd  /usr/local/lib/python3.13/site-packages/dsmr_parser/clients/
 cp protocol.py protocol.py.orig
 --
 ls (könyvtár tartalam)
 cd (váltás könyvtárak között)
 cp (másolás)
   
-cd  /usr/local/lib/python3.12/site-packages/dsmr_parser/clients/
+cd  /usr/local/lib/python3.13/site-packages/dsmr_parser/clients/
 
 cp /tmp/dsmrjav/clients/protocol.jav_pass.py protocol.py
 or
